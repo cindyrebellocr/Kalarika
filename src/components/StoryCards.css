@@ -1,0 +1,12 @@
+.story-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; width: 100%; }
+.story-card { background: var(--primary); border-radius: var(--radius); padding: 24px; min-height: 470px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+.story-card-top { display: flex; flex-direction: column; gap: 16px; }
+.story-card .story-card-img { width: 100%; height: 234px; }
+.story-card .card-title { color: var(--gold); }
+.story-card .body { color: #fbe9d3; }
+.tone-warm .story-card .body { color: #f8d3a8; }
+.story-card .story-more { color: var(--gold); text-align: right; cursor: default; }
+@media (max-width: 900px) {
+  .story-cards { grid-template-columns: 1fr; }
+  .story-card { min-height: 0; }
+}

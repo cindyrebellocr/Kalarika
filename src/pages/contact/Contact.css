@@ -1,0 +1,22 @@
+.contact-page { padding-top: 80px; gap: 48px; }
+.contact-panel { background: var(--cream); border-radius: var(--radius); padding: 40px 28px; display: flex; align-items: center; justify-content: space-between; gap: 32px; margin: 0 -22px; }
+.contact-left { flex: 0 1 702px; display: flex; flex-direction: column; gap: 69px; }
+.contact-page-form { padding: 20px; gap: 23px; }
+.contact-page-form .form-row { gap: 16px 132px; }
+.contact-page-form .input,
+.contact-page-form .textarea-wrap { border-color: transparent; }
+.contact-page-form .textarea-wrap { padding: 14px 12px; min-height: 115px; }
+.contact-page-form .textarea { min-height: 60px; }
+.contact-right { flex: 0 0 468px; min-height: 614px; border: 0.5px solid #d7aa76; border-radius: var(--radius); padding: 25px 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+.contact-tiles { display: flex; flex-direction: column; gap: 27px; }
+.contact-tile { width: 309px; height: 94px; border: 1px solid var(--primary); border-radius: var(--radius); display: flex; align-items: center; gap: 15px; padding: 10px 24px; color: var(--primary); white-space: nowrap; }
+.contact-right hr { width: 100%; max-width: 404px; border: 0; border-top: 1px solid #d7aa76; margin: 0; }
+.contact-social { display: flex; gap: 13.3px; margin-top: -9px; }
+.contact-social img { width: 40px; height: 40px; }
+@media (max-width: 1000px) {
+  .contact-panel { flex-direction: column; align-items: stretch; margin: 0; padding: 24px 16px; }
+  .contact-left { gap: 32px; }
+  .contact-page-form .form-row { gap: 14px 17px; }
+  .contact-right { flex: none; min-height: 0; }
+  .contact-tile { width: 100%; max-width: 309px; }
+}

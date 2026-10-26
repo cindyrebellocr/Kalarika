@@ -1,0 +1,45 @@
+@import '../about/About.css';
+@import './Gallery.css';
+
+.collage-weddings { aspect-ratio: 1207.7 / 415.3; width: calc(100% + 8px); }
+.weddings > .container:first-of-type { margin-top: 0; }
+
+.story-filter { background: var(--primary); border-radius: var(--radius); padding: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.story-chips { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.story-chips .chip { white-space: pre; }
+.search-box.on-dark { border-color: var(--gold); width: 242px; }
+.search-box.on-dark input { color: var(--gold); }
+.search-box.on-dark input::placeholder { color: var(--gold); }
+
+.wedding-list { display: flex; flex-direction: column; gap: 48px; }
+.wedding-card { background: var(--cream); border-radius: var(--radius); padding: 32px; display: flex; align-items: center; gap: 48px; }
+.wedding-card-img { width: 390px; height: 408px; flex-shrink: 0; }
+.wedding-card-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 40px; max-width: 698px; }
+.wedding-card-title { display: block; }
+.link-title:hover { text-decoration: underline; text-underline-offset: 4px; }
+.wedding-meta { list-style: none; padding: 0; margin-top: -8px; }
+.story-cta { height: 55px; }
+.story-cta img { width: 24px; height: 24px; }
+
+.weddings-contact { display: flex; flex-direction: column; gap: 0; padding-top: 8px; }
+.weddings-contact .contact-section { padding-top: 48px; }
+
+@media (max-width: 900px) {
+  .wedding-card { flex-direction: column; align-items: stretch; padding: 20px; gap: 24px; }
+  .wedding-card-img { width: 100%; height: 280px; }
+  .search-box.on-dark { width: 100%; }
+  .collage-weddings { width: 100%; }
+}
+
+/* Story page */
+.story-hero .tagline strong { font-weight: 500; }
+.story-text { color: #000; display: flex; flex-direction: column; gap: 24px; }
+.couple-quote { margin: 0; background: var(--cream); border-radius: var(--radius); padding: 46px 28px; display: flex; align-items: center; gap: 36px; }
+.couple-quote img { width: 353px; height: 267px; object-fit: cover; border-radius: var(--radius); flex-shrink: 0; }
+.couple-quote > div { display: flex; flex-direction: column; gap: 47px; color: #000; }
+.couple-quote blockquote { margin: 0; }
+.icon-cards.tall .icon-card { min-height: 226px; }
+@media (max-width: 900px) {
+  .couple-quote { flex-direction: column; align-items: stretch; padding: 20px; gap: 24px; }
+  .couple-quote img { width: 100%; height: 240px; }
+}

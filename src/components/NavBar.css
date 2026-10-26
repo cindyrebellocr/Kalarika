@@ -1,0 +1,154 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 120px;
+  padding: 0 32px;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo { display: inline-flex; align-items: flex-start; gap: 9px; }
+.logo-mark { width: 55px; height: 55px; }
+.logo-words { display: flex; flex-direction: column; }
+.logo-text { width: 162px; height: 33px; }
+.logo-tagline {
+  font-family: var(--font-serif);
+  font-size: 13.8px;
+  line-height: 1.282;
+  color: var(--gold);
+  margin-top: 5px;
+  white-space: nowrap;
+}
+
+.navbar-right { display: contents; }
+
+.nav-list { list-style: none; padding: 0; display: flex; align-items: center; gap: 24px; }
+.nav-item { position: relative; }
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 48px 8px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.072px;
+  color: var(--gold);
+  white-space: nowrap;
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 38px;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+.nav-link:hover::after,
+.nav-item.open > .nav-link::after { transform: scaleX(1); }
+/* current section: gold bar along the bottom edge of the bar (as in the Figma nav states) */
+.nav-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 9px;
+  background: var(--gold);
+}
+.nav-link.active::after { display: none; }
+.nav-chevron { width: 24px; height: 24px; transform: rotate(90deg); transition: transform 0.2s ease; }
+.nav-item.open .nav-chevron { transform: rotate(-90deg); }
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  background: var(--gold);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+}
+.nav-item.open .nav-menu { opacity: 1; visibility: visible; transform: none; }
+.nav-menu-link {
+  display: block;
+  height: 46px;
+  padding: 11px 16px 11px 14px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.072px;
+  color: var(--primary);
+  white-space: nowrap;
+}
+.nav-menu-link:hover,
+.nav-menu-link.active { background: #f9d6ad; text-decoration: underline; text-underline-offset: 4px; }
+
+.nav-cta { flex-shrink: 0; }
+.nav-account { width: 48px; height: 48px; padding: 4px; flex-shrink: 0; }
+.nav-account img { width: 40px; height: 40px; }
+
+.nav-burger { display: none; }
+
+@media (max-width: 1240px) {
+  .navbar { padding: 0 20px; }
+  .nav-list { gap: 8px; }
+  .nav-link { font-size: 16px; }
+}
+
+@media (max-width: 1080px) {
+  .navbar { height: 88px; }
+  .logo-mark { width: 44px; height: 44px; }
+  .logo-text { width: 130px; height: 27px; }
+  .logo-tagline { font-size: 11px; }
+  .nav-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    margin-left: auto;
+  }
+  .nav-burger span { height: 2px; background: var(--gold); border-radius: 2px; }
+  .navbar-right {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--primary);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 8px 20px 24px;
+    max-height: calc(100vh - 88px);
+    overflow-y: auto;
+    border-top: 1px solid rgba(246, 200, 146, 0.3);
+  }
+  .navbar-right.mobile-open { display: flex; }
+  .nav-list { flex-direction: column; align-items: stretch; gap: 0; }
+  .nav-link { padding: 14px 0; width: 100%; justify-content: space-between; }
+  .nav-link::after, .nav-link.active::before { display: none; }
+  .nav-link.active { text-decoration: underline; text-underline-offset: 6px; }
+  .nav-menu { position: static; box-shadow: none; display: none; opacity: 1; visibility: visible; transform: none; border-radius: var(--radius); overflow: hidden; }
+  .nav-item.open .nav-menu { display: block; }
+  .nav-cta { align-self: flex-start; }
+  .nav-account { display: none; }
+}

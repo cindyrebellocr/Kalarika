@@ -1,0 +1,48 @@
+/* Hero carousel */
+.home-hero-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.8s ease, visibility 0.8s; }
+.home-hero-slide.is-active { opacity: 1; visibility: visible; }
+.home-hero-slide::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5); }
+.home-hero::after { display: none; }
+.home-hero-content { justify-content: flex-start; padding-top: 277px; padding-bottom: 0; }
+.home-hero .hero-text { max-width: 510px; }
+.home-hero .dot { cursor: pointer; }
+
+/* Quote + pillars */
+.home-intro { display: flex; flex-direction: column; align-items: center; gap: 124px; }
+.home-quote { position: relative; margin: 0; max-width: 1056px; padding: 4px 79px 15px 40px; text-align: center; }
+.home-quote .h2 { color: var(--primary); }
+.quote-mark { position: absolute; font-family: var(--font-heading); font-size: 128px; line-height: 64px; color: var(--primary-10); }
+.quote-mark.open { left: 0; top: 0; height: 22px; }
+.quote-mark.close { right: 0; bottom: -18px; }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 21px; width: 100%; }
+.pillar { min-height: 252px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+
+/* Stats */
+.stats { display: flex; justify-content: center; align-items: center; padding: 16px 64px; min-height: 199px; filter: drop-shadow(var(--card-shadow)); }
+.stat-wrap { display: flex; align-items: center; }
+.stat-divider { width: 2px; height: 167px; margin: 0 74px 0 0; background: var(--gold-20); border-radius: 2px; }
+.stat-wrap + .stat-wrap { margin-left: 74px; }
+.stat { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; color: var(--gold); }
+.stat .h5 { color: var(--gold); }
+
+/* Testimonies */
+.testimonies { display: flex; flex-direction: column; align-items: center; gap: 44px; }
+.testimonies .section-title { align-self: stretch; }
+@media (max-width: 1100px) {
+  .stats { flex-wrap: wrap; gap: 32px; padding: 32px; }
+  .stat-divider { display: none; }
+  .stat-wrap + .stat-wrap { margin-left: 0; }
+  .stat-wrap { flex: 1 1 40%; justify-content: center; }
+}
+@media (max-width: 900px) {
+  .pillars { grid-template-columns: 1fr; }
+  .pillar { min-height: 0; padding: 24px; }
+  .home-intro { gap: 64px; }
+}
+@media (max-width: 720px) {
+  .home-hero-content { padding-top: 160px; }
+  .home-quote { padding: 24px 24px 32px; }
+  .quote-mark { font-size: 80px; }
+  .quote-mark.open { left: -8px; top: 8px; }
+  .quote-mark.close { right: -8px; bottom: -24px; }
+}

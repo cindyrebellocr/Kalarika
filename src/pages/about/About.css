@@ -1,0 +1,146 @@
+/* Shared by the three About pages */
+.split-intro { display: flex; align-items: center; justify-content: space-between; gap: 64px; }
+.split-intro-copy { display: flex; flex-direction: column; gap: 48px; max-width: 794px; }
+.split-intro-copy .body { max-width: 729px; }
+.split-intro-mark { width: 283px; height: auto; flex-shrink: 0; margin-right: 30px; }
+
+/* Core values bento */
+.values { display: flex; flex-direction: column; gap: 16px; }
+.values-row { display: flex; gap: 16px; }
+.value-card {
+  flex: 1 1 0;
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.values-row.top .value-card { min-height: 232px; }
+.values-row.bottom .value-card { min-height: 279px; flex-grow: 0; flex-shrink: 1; }
+.value-icon { width: 69px; height: 69px; border-radius: 50%; background: var(--primary); display: grid; place-items: center; flex-shrink: 0; }
+img.value-icon { background: none; }
+.value-card .h3 { font-weight: 400; }
+.value-text { font-size: 15px; line-height: 24px; letter-spacing: 0.045px; }
+
+.motto-quote .h3 { font-weight: 400; }
+.motto-quote { max-width: 1055px; padding-bottom: 20px; }
+.motto-quote .quote-mark { color: var(--primary); }
+
+/* Process timeline */
+.process { display: flex; flex-direction: column; gap: 120px; }
+.process-list { list-style: none; padding: 0; position: relative; width: 913px; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 72px; }
+.process-list::before { content: ''; position: absolute; left: 378px; top: -99px; bottom: -99px; width: 1px; background: #b58081; }
+.process-step { display: flex; align-items: center; position: relative; }
+.process-icon { width: 237px; height: 201px; flex-shrink: 0; }
+.process-num {
+  width: 66px;
+  height: 66px;
+  margin-left: 108px;
+  margin-right: 84px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  position: relative;
+}
+.process-copy { width: 418px; display: flex; flex-direction: column; gap: 24px; }
+.process-copy .h3 { font-weight: 400; }
+
+/* Partnerships */
+.partners { display: flex; flex-direction: column; gap: 80px; padding: 40px 0; }
+.partners-mark { position: relative; width: 288px; height: 171px; flex-shrink: 0; margin-right: 30px; }
+.partners-mark img { position: absolute; top: 0; }
+.partners-mark .a { left: 0; width: 196px; height: 171px; }
+.partners-mark .b { left: 117px; width: 171px; height: 171px; transform: scaleX(-1); }
+.partner-logos { list-style: none; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0; }
+.partner-logos li { display: flex; justify-content: center; padding: 10px 22px; }
+.partner-logos li + li { border-left: 1px solid #b58081; }
+
+/* Team */
+.team { display: flex; flex-direction: column; gap: 48px; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.team-card { background: #fbe9d3; border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.team-photo { width: 100%; height: 234px; }
+
+/* Life at Kalārika */
+.life { background: var(--cream); padding: 40px 0 80px; margin-bottom: calc(-1 * var(--section-gap)); }
+.life-inner { display: flex; flex-direction: column; gap: 24px; }
+.life-inner .section-title { margin-bottom: 24px; }
+.life-text { max-width: 685px; }
+.collage { position: relative; width: 100%; aspect-ratio: 1200 / 625; }
+.collage-tile { position: absolute; }
+.life .join-banner { margin-top: 40px; }
+
+@media (max-width: 1100px) {
+  .values-row { flex-wrap: wrap; }
+  .values-row.bottom .value-card { flex: 1 1 300px; }
+  .process-list::before { display: none; }
+  .process-step { flex-wrap: wrap; gap: 24px; }
+  .process-num { margin: 0; }
+  .process-copy { width: auto; flex: 1 1 300px; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 800px) {
+  .split-intro { flex-direction: column; align-items: flex-start; }
+  .split-intro-mark, .partners-mark { display: none; }
+  .values-row.top { flex-direction: column; }
+  .process-icon { width: 160px; height: auto; }
+  .partner-logos li + li { border-left: 0; }
+  .collage { aspect-ratio: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .collage-tile { position: relative; inset: auto !important; width: auto !important; height: 180px !important; }
+  .collage-tile img { position: static !important; width: 100% !important; height: 100% !important; }
+}
+@media (max-width: 560px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
+
+/* Artisan collective */
+.hands { display: flex; flex-direction: column; gap: 48px; }
+.hands .split-intro-copy .body { display: flex; flex-direction: column; }
+.hands-mark { position: relative; width: 313px; height: 166px; flex-shrink: 0; margin-right: 0; }
+.hands-mark img { position: absolute; }
+.hands-mark .a { left: 72.2px; top: 0; width: 176px; height: 166px; }
+.hands-mark .b { left: 0; top: 26.6px; width: 90.3px; height: 132px; }
+.hands-mark .c { left: 226.2px; top: 26.6px; width: 92px; height: 132px; }
+.collage-artisans { aspect-ratio: 1208 / 415; width: calc(100% + 8px); margin-left: -4px; }
+.collage-tile.square { border-radius: 0; }
+
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.why-card { background: var(--cream); border-radius: var(--radius); padding: 32px 24px; min-height: 316px; display: flex; flex-direction: column; gap: 16px; }
+.why-card img { width: 60px; height: 60px; }
+.why-card .card-title { min-height: 64px; }
+
+.artform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.artform-card { background: var(--primary); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.artform-card img { width: 100%; height: 234px; object-fit: cover; border-radius: var(--radius); }
+.artform-card .card-title { color: var(--gold); }
+.artform-card .body { color: #fbe9d3; }
+
+@media (max-width: 900px) {
+  .why-grid, .artform-grid { grid-template-columns: 1fr; }
+  .why-card { min-height: 0; }
+  .why-card .card-title { min-height: 0; }
+  .hands-mark { display: none; }
+  .collage-artisans { aspect-ratio: auto; width: 100%; margin: 0; }
+}
+
+/* Social impact */
+.impact-rows { display: flex; flex-direction: column; gap: 80px; }
+.impact-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.impact-row.reverse { flex-direction: row-reverse; }
+.impact-copy { max-width: 583px; display: flex; flex-direction: column; gap: 48px; }
+.impact-copy .stack { max-width: 583px; }
+.impact-copy .h3 { font-weight: 400; }
+.eyebrow { font-family: var(--font-serif); font-size: 16px; line-height: 24px; letter-spacing: 0.032px; color: var(--primary-10); }
+.impact-img { width: 592px; height: 258px; flex-shrink: 0; border-radius: 0; }
+@media (max-width: 1000px) {
+  .impact-row, .impact-row.reverse { flex-direction: column; align-items: stretch; }
+  .impact-img { width: 100%; height: auto; aspect-ratio: 592 / 258; }
+}

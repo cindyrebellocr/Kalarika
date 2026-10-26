@@ -1,0 +1,8 @@
+.plan-cards { display: flex; flex-direction: column; gap: 44px; }
+.plan-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 21px; }
+.plan-card { min-height: 252px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+.plan-card .plan-card-cta { align-self: flex-end; margin-top: 8px; }
+@media (max-width: 900px) {
+  .plan-cards-grid { grid-template-columns: 1fr; }
+  .plan-card { min-height: 0; padding: 24px; }
+}
