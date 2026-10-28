@@ -16,7 +16,7 @@
 .wedding-card-img { width: 390px; height: 408px; flex-shrink: 0; }
 .wedding-card-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 40px; max-width: 698px; }
 .wedding-card-title { display: block; }
-.link-title:hover { text-decoration: underline; text-underline-offset: 4px; }
+.link-title:hover { color: var(--primary-10); }
 .wedding-meta { list-style: none; padding: 0; margin-top: -8px; }
 .story-cta { height: 55px; }
 .story-cta img { width: 24px; height: 24px; }

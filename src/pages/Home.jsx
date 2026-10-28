@@ -15,7 +15,6 @@ const HERO_SLIDES = [
     position: 'center top',
     title: 'Traditions come true',
     text: 'An unforgettable beginning shaped by heritage, emotion, and thoughtful details.',
-    actions: true,
   },
   { image: 'home/hero-2.jpg', title: 'Crafted by Heritage', text: 'Every motif and material reflects generations of skill, transformed into timeless expressions for today.' },
   { image: 'home/hero-3.jpg', title: 'Stories Woven by Hand', text: 'From intricate embroidery to ceremonial artistry, each creation reflects generations of skill, emotion, and dedication.' },
@@ -56,25 +55,19 @@ const MOMENTS = [
   { src: asset('home/moment-5.png'), caption: 'Intricate Zari work on lehenga' },
 ];
 
+const HERO_INTERVAL_MS = 4000;
+
 function HeroCarousel() {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
 
+  // Advance every few seconds, like the prototype; picking a dot restarts the timer
   useEffect(() => {
-    if (paused) return undefined;
-    const t = setTimeout(() => setIndex((i) => (i + 1) % HERO_SLIDES.length), 6000);
+    const t = setTimeout(() => setIndex((i) => (i + 1) % HERO_SLIDES.length), HERO_INTERVAL_MS);
     return () => clearTimeout(t);
-  }, [index, paused]);
+  }, [index]);
 
   return (
-    <section
-      className="hero home-hero"
-      aria-roledescription="carousel"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
-    >
+    <section className="hero home-hero" aria-roledescription="carousel">
       {HERO_SLIDES.map((s, i) => (
         <div key={s.title} className={`home-hero-slide ${i === index ? 'is-active' : ''}`} aria-hidden={i !== index}>
           <img className="hero-bg" src={asset(s.image)} alt="" style={{ objectPosition: s.position || 'center' }} />
@@ -83,16 +76,14 @@ function HeroCarousel() {
               {i === 0 ? <h1 className="h1">{s.title}</h1> : <h2 className="h1">{s.title}</h2>}
               <p className="tagline">{s.text}</p>
             </div>
-            {s.actions && (
-              <div className="hero-actions">
-                <Link to={ROUTES.contact} className="btn btn-gold" tabIndex={i === index ? 0 : -1}>
-                  Contact Us
-                </Link>
-                <Link to={ROUTES.weddings} className="btn btn-gold-outline" tabIndex={i === index ? 0 : -1}>
-                  Explore our works
-                </Link>
-              </div>
-            )}
+            <div className="hero-actions">
+              <Link to={ROUTES.contact} className="btn btn-gold" tabIndex={i === index ? 0 : -1}>
+                Contact Us
+              </Link>
+              <Link to={ROUTES.weddings} className="btn btn-gold-outline" tabIndex={i === index ? 0 : -1}>
+                Explore our works
+              </Link>
+            </div>
           </div>
         </div>
       ))}

@@ -22,7 +22,8 @@
 .footer-title { font-weight: 500; font-size: 18px; line-height: 24px; letter-spacing: 0.072px; white-space: nowrap; }
 .footer-group ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1px; }
 .footer-group li { font-size: 14px; line-height: 22px; letter-spacing: 0.056px; white-space: nowrap; }
-.footer-group a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.footer-group a { transition: color 0.15s; }
+.footer-group a:hover { color: var(--cream); }
 .footer-top { align-self: flex-start; margin-top: 14px; }
 
 @media (max-width: 1200px) {

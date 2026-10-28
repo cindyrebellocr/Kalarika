@@ -42,21 +42,8 @@
   white-space: nowrap;
   position: relative;
 }
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 8px;
-  right: 8px;
-  bottom: 38px;
-  height: 2px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transition: transform 0.2s ease;
-}
-.nav-link:hover::after,
-.nav-item.open > .nav-link::after { transform: scaleX(1); }
-/* current section: gold bar along the bottom edge of the bar (as in the Figma nav states) */
-.nav-link.active::before {
+/* Figma nav states: hover, open and current page all show a gold bar along the bottom edge — no text underline */
+.nav-link::before {
   content: '';
   position: absolute;
   left: 0;
@@ -64,8 +51,12 @@
   bottom: 0;
   height: 9px;
   background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
-.nav-link.active::after { display: none; }
+.nav-link:hover::before,
+.nav-item.open > .nav-link::before,
+.nav-link.active::before { opacity: 1; }
 .nav-chevron { width: 24px; height: 24px; transform: rotate(90deg); transition: transform 0.2s ease; }
 .nav-item.open .nav-chevron { transform: rotate(-90deg); }
 
@@ -96,8 +87,10 @@
   color: var(--primary);
   white-space: nowrap;
 }
+.nav-menu-link { transition: background-color 0.15s; }
 .nav-menu-link:hover,
-.nav-menu-link.active { background: #f9d6ad; text-decoration: underline; text-underline-offset: 4px; }
+.nav-menu-link.active { background: #f8d3a8; }
+.nav-menu-link:active { background: #d7aa76; }
 
 .nav-cta { flex-shrink: 0; }
 .nav-account { width: 48px; height: 48px; padding: 4px; flex-shrink: 0; }
@@ -145,8 +138,7 @@
   .navbar-right.mobile-open { display: flex; }
   .nav-list { flex-direction: column; align-items: stretch; gap: 0; }
   .nav-link { padding: 14px 0; width: 100%; justify-content: space-between; }
-  .nav-link::after, .nav-link.active::before { display: none; }
-  .nav-link.active { text-decoration: underline; text-underline-offset: 6px; }
+  .nav-link::before { top: 10px; bottom: 10px; left: -20px; right: auto; width: 4px; height: auto; }
   .nav-menu { position: static; box-shadow: none; display: none; opacity: 1; visibility: visible; transform: none; border-radius: var(--radius); overflow: hidden; }
   .nav-item.open .nav-menu { display: block; }
   .nav-cta { align-self: flex-start; }

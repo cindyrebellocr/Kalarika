@@ -1,14 +1,11 @@
 .testimony-block { display: flex; flex-direction: column; align-items: center; gap: 44px; width: 100%; }
 .testimony-row { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.arrow-btn.static { display: inline-block; cursor: default; }
-.arrow-btn.static:hover { background: none; }
+.arrow-btn.static { display: inline-block; }
 .testimony { margin: 0; background: var(--cream); border-radius: var(--radius); padding: 28px; display: flex; align-items: center; gap: 42px; max-width: 913px; }
 .testimony > img { width: 221px; height: 212px; object-fit: cover; border-radius: var(--radius); flex-shrink: 0; }
 .testimony-body { display: flex; flex-direction: column; gap: 47px; max-width: 594px; }
 .testimony-body blockquote { margin: 0; }
 .testimony figcaption { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.static-link { cursor: default; }
-.static-link:hover { color: var(--primary); }
 @media (max-width: 900px) {
   .testimony { flex-direction: column; align-items: flex-start; gap: 24px; padding: 20px; }
   .testimony > img { width: 100%; height: 260px; }

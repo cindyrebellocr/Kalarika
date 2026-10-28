@@ -24,7 +24,7 @@
 .apply-form { background: var(--cream); border-radius: var(--radius); padding: 48px 24px; display: flex; flex-direction: column; align-items: center; gap: 32px; }
 .apply-title { width: 100%; max-width: 734px; font-weight: 400; }
 .apply-fields { width: 100%; max-width: 734px; }
-.apply-fields .input.lg { background: transparent; }
+.apply-fields .input.lg { background: transparent; height: 38px; }
 .upload-row { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
 .apply-submit { width: 162px; height: 60px; }
 

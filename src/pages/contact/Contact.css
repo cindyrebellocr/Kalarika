@@ -1,12 +1,12 @@
 .contact-page { padding-top: 80px; gap: 48px; }
-.contact-panel { background: var(--cream); border-radius: var(--radius); padding: 40px 28px; display: flex; align-items: center; justify-content: space-between; gap: 32px; margin: 0 -22px; }
+.contact-panel { background: var(--cream); border-radius: var(--radius); padding: 40px 28px; display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 0 -22px; }
 .contact-left { flex: 0 1 702px; display: flex; flex-direction: column; gap: 69px; }
 .contact-page-form { padding: 20px; gap: 23px; }
-.contact-page-form .form-row { gap: 16px 132px; }
+.contact-page-form .form-row { gap: 16px 130px; }
 .contact-page-form .input,
 .contact-page-form .textarea-wrap { border-color: transparent; }
-.contact-page-form .textarea-wrap { padding: 14px 12px; min-height: 115px; }
-.contact-page-form .textarea { min-height: 60px; }
+.contact-page-form .textarea-wrap { padding: 14px 12px; }
+.contact-page-form .textarea { height: 61px; min-height: 61px; }
 .contact-right { flex: 0 0 468px; min-height: 614px; border: 0.5px solid #d7aa76; border-radius: var(--radius); padding: 25px 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
 .contact-tiles { display: flex; flex-direction: column; gap: 27px; }
 .contact-tile { width: 309px; height: 94px; border: 1px solid var(--primary); border-radius: var(--radius); display: flex; align-items: center; gap: 15px; padding: 10px 24px; color: var(--primary); white-space: nowrap; }

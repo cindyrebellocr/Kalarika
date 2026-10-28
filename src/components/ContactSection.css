@@ -13,7 +13,9 @@
 .contact-line img { flex-shrink: 0; }
 .whatsapp-btn { margin-top: 8px; }
 .whatsapp-btn img { width: 15px; height: 15px; }
-.contact-section-form { width: 434px; flex-shrink: 0; gap: 20px; }
+.contact-section-form { width: 434px; flex-shrink: 0; gap: 20px; padding: 20px 18px; }
+.contact-section-form .form-row { column-gap: 22px; }
+.contact-section-form .textarea { height: 30px; min-height: 30px; }
 .contact-form .contact-submit { align-self: center; margin-top: 19px; }
 
 @media (max-width: 960px) {
