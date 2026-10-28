@@ -19,6 +19,7 @@ export const ROUTES = {
   artisanSteps: '/careers/apply-as-artisan',
   artisanEnroll: '/careers/apply-as-artisan/enroll',
   contact: '/contact',
-  // Not in the Figma prototype: customer log in, reached from the profile icon
+  // Customer log in and dashboard (Figma "Task 4"), reached from the profile icon
   login: '/login',
+  account: '/account',
 };

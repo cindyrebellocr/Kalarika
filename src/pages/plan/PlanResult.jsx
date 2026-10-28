@@ -2,26 +2,13 @@ import { Link } from 'react-router-dom';
 import { asset } from '../../lib/asset';
 import { ROUTES } from '../../lib/routes';
 import Crop from '../../components/Crop';
+import VisualCollage from '../../components/VisualCollage';
 import ContactSection from '../../components/ContactSection';
 import './Plan.css';
 
 const a = (f) => asset(`result/${f}`);
 
 // [file, left, top, width, height, crop] on a 1207.7 × 415.3 stage
-const COLLAGE = [
-  ['r-84', 0, 0, 252.3, 151, [0, -15.96, 100, 121.94]],
-  ['r-86', -1, 163, 252, 251, [-4.17, 0, 108.33, 108.77]],
-  ['r-85', 264.3, 0, 190.7, 260.9],
-  ['r-87', 264.3, 272.9, 190.7, 141.1, [-0.15, -17.65, 100, 135.21]],
-  ['r-83', 467, 0, 331, 198],
-  ['r-89', 467, 210, 160, 205],
-  ['r-91', 639, 210, 160, 205],
-  ['r-90', 811, 0, 191, 198, [-6.15, 0.25, 112.3, 108.33]],
-  ['r-88', 811, 210, 191, 204],
-  ['r-92', 1013.7, 0, 194, 151],
-  ['r-93', 1013.7, 163, 194, 251],
-];
-
 const ART = [
   {
     label: 'Primary Craft',
@@ -114,17 +101,7 @@ export default function PlanResult() {
 
       <section className="container stack gap-48">
         <h2 className="section-title ink">Your Visual Direction</h2>
-        <div className="collage" style={{ aspectRatio: '1207.7 / 415.3', width: 'calc(100% + 8px)' }}>
-          {COLLAGE.map(([src, l, t, w, h, crop]) => (
-            <Crop
-              key={src}
-              src={a(`${src}.jpg`)}
-              crop={crop}
-              className="collage-tile"
-              style={{ left: `${(l / 1207.7) * 100}%`, top: `${(t / 415.3) * 100}%`, width: `${(w / 1207.7) * 100}%`, height: `${(h / 415.3) * 100}%`, borderRadius: 0 }}
-            />
-          ))}
-        </div>
+        <VisualCollage />
         <p className="body text-center">
           Your wedding aesthetic leans toward layered textures, detailed craftsmanship, and bold cultural accents. The colour palette and material
           selections support a regal atmosphere while maintaining refined balance.

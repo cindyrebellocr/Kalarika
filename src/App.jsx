@@ -23,6 +23,7 @@ import CareerDetail from './pages/careers/CareerDetail';
 import ArtisanSteps from './pages/careers/ArtisanSteps';
 import ArtisanEnroll from './pages/careers/ArtisanEnroll';
 import Login from './pages/account/Login';
+import Dashboard from './pages/account/Dashboard';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -57,6 +58,7 @@ export default function App() {
         <Route path={ROUTES.artisanSteps} element={<ArtisanSteps />} />
         <Route path={ROUTES.artisanEnroll} element={<ArtisanEnroll />} />
         <Route path={ROUTES.login} element={<Login />} />
+        <Route path={ROUTES.account} element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

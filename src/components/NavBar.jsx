@@ -82,7 +82,6 @@ function Dropdown({ item, open, onToggle, onClose }) {
 /** Profile icon: opens on click with Log In, or the customer's name and Log Out once logged in. */
 function AccountMenu({ open, onToggle, onClose }) {
   const { customer, logOut } = useCustomer();
-  const { pathname } = useLocation();
   return (
     <div className={`nav-item nav-account-item ${open ? 'open' : ''}`}>
       <button
@@ -104,6 +103,11 @@ function AccountMenu({ open, onToggle, onClose }) {
               <span>{customer.email}</span>
             </li>
             <li role="none">
+              <NavLink role="menuitem" to={ROUTES.account} className="nav-menu-link" onClick={onClose}>
+                My Dashboard
+              </NavLink>
+            </li>
+            <li role="none">
               <button
                 type="button"
                 role="menuitem"
@@ -119,7 +123,7 @@ function AccountMenu({ open, onToggle, onClose }) {
           </>
         ) : (
           <li role="none">
-            <Link role="menuitem" to={ROUTES.login} state={{ from: pathname }} className="nav-menu-link" onClick={onClose}>
+            <Link role="menuitem" to={ROUTES.login} className="nav-menu-link" onClick={onClose}>
               Log In
             </Link>
           </li>

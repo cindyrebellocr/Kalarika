@@ -2,15 +2,14 @@ import { createContext, useCallback, useContext, useMemo, useState } from 'react
 
 /*
  * Front-end only customer session. There is no backend, so any valid email and
- * password "logs in"; the session is kept in localStorage ("Keep me logged in")
- * or sessionStorage (until the browser tab is closed).
+ * password "logs in"; the session is kept in localStorage until Log Out.
  */
 const KEY = 'kalarika-customer';
 const CustomerContext = createContext(null);
 
 const read = () => {
   try {
-    return JSON.parse(localStorage.getItem(KEY) || sessionStorage.getItem(KEY)) || null;
+    return JSON.parse(localStorage.getItem(KEY)) || null;
   } catch {
     return null;
   }
@@ -24,12 +23,10 @@ const nameFromEmail = (email) => {
 export function CustomerProvider({ children }) {
   const [customer, setCustomer] = useState(read);
 
-  const logIn = useCallback((email, remember) => {
+  const logIn = useCallback((email) => {
     const next = { email, name: nameFromEmail(email) };
     try {
-      localStorage.removeItem(KEY);
-      sessionStorage.removeItem(KEY);
-      (remember ? localStorage : sessionStorage).setItem(KEY, JSON.stringify(next));
+      localStorage.setItem(KEY, JSON.stringify(next));
     } catch {
       /* storage unavailable — the session lasts until the page is reloaded */
     }
@@ -39,7 +36,6 @@ export function CustomerProvider({ children }) {
   const logOut = useCallback(() => {
     try {
       localStorage.removeItem(KEY);
-      sessionStorage.removeItem(KEY);
     } catch {
       /* nothing stored */
     }
