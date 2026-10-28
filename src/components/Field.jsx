@@ -22,23 +22,24 @@ function FieldShell({ id, label, required, error, hint, className = '', children
   );
 }
 
-/** Optional leading icon (image src) or text prefix such as "+91", drawn inside the input border. */
-function Adorned({ icon, prefix, children }) {
-  if (!icon && !prefix) return children;
+/** Optional leading icon (image src) or text prefix such as "+91", and a trailing element (e.g. a show-password button), drawn inside the input border. */
+function Adorned({ icon, prefix, suffix, children }) {
+  if (!icon && !prefix && !suffix) return children;
   return (
     <div className="input-adorn">
       {icon && <img src={icon} alt="" width="24" height="24" />}
       {prefix && <span className="input-prefix">{prefix}</span>}
       {children}
+      {suffix}
     </div>
   );
 }
 
-export function TextField({ label, required, error, hint, className, inputClassName = '', type = 'text', icon, prefix, ...props }) {
+export function TextField({ label, required, error, hint, className, inputClassName = '', type = 'text', icon, prefix, suffix, ...props }) {
   const id = useId();
   return (
     <FieldShell id={id} label={label} required={required} error={error} hint={hint} className={className}>
-      <Adorned icon={icon} prefix={prefix}>
+      <Adorned icon={icon} prefix={prefix} suffix={suffix}>
         <input
           id={id}
           type={type}

@@ -57,6 +57,13 @@ const rules = {
     if (required && !v) return { final: `${label} is required` };
     return {};
   },
+  password(value, { required = true, min = 8, max = 64 } = {}) {
+    if (/\s/.test(value)) return { live: 'Password cannot contain spaces' };
+    if (value.length > max) return { live: `Password cannot be longer than ${max} characters` };
+    if (required && !value) return { final: 'Password is required' };
+    if (value && value.length < min) return { final: `Password must be at least ${min} characters (${value.length}/${min})` };
+    return {};
+  },
   pincode(value, { required = true } = {}) {
     const v = value.trim();
     if (/[^0-9]/.test(v)) return { live: 'PIN code can only contain numbers' };

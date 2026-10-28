@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { asset } from '../lib/asset';
 import { ROUTES } from '../lib/routes';
+import { useCustomer } from '../lib/customer';
 import './NavBar.css';
 
 const MENU = [
@@ -78,6 +79,56 @@ function Dropdown({ item, open, onToggle, onClose }) {
   );
 }
 
+/** Profile icon: opens on click with Log In, or the customer's name and Log Out once logged in. */
+function AccountMenu({ open, onToggle, onClose }) {
+  const { customer, logOut } = useCustomer();
+  const { pathname } = useLocation();
+  return (
+    <div className={`nav-item nav-account-item ${open ? 'open' : ''}`}>
+      <button
+        type="button"
+        className="nav-account"
+        aria-label={customer ? `Account: ${customer.name}` : 'Account'}
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => onToggle(!open)}
+      >
+        <img src={asset('common/account-group.svg')} alt="" width="40" height="40" />
+        <span className="nav-account-label">{customer ? `Hi, ${customer.name}` : 'Account'}</span>
+      </button>
+      <ul className="nav-menu account-menu" role="menu">
+        {customer ? (
+          <>
+            <li role="none" className="account-hello">
+              Logged in as
+              <span>{customer.email}</span>
+            </li>
+            <li role="none">
+              <button
+                type="button"
+                role="menuitem"
+                className="nav-menu-link"
+                onClick={() => {
+                  logOut();
+                  onClose();
+                }}
+              >
+                Log Out
+              </button>
+            </li>
+          </>
+        ) : (
+          <li role="none">
+            <Link role="menuitem" to={ROUTES.login} state={{ from: pathname }} className="nav-menu-link" onClick={onClose}>
+              Log In
+            </Link>
+          </li>
+        )}
+      </ul>
+    </div>
+  );
+}
+
 export default function NavBar() {
   const [openMenu, setOpenMenu] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -150,10 +201,11 @@ export default function NavBar() {
         <Link to={ROUTES.contact} className="btn btn-gold nav-cta">
           Contact Us
         </Link>
-        {/* Account icon has no destination in the prototype, so it stays inert */}
-        <span className="nav-account" aria-hidden="true">
-          <img src={asset('common/account-group.svg')} alt="" width="40" height="40" />
-        </span>
+        <AccountMenu
+          open={openMenu === 'account'}
+          onToggle={(o) => setOpenMenu(o ? 'account' : null)}
+          onClose={() => setOpenMenu(null)}
+        />
       </div>
     </header>
   );

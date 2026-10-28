@@ -93,8 +93,16 @@
 .nav-menu-link:active { background: #d7aa76; }
 
 .nav-cta { flex-shrink: 0; }
-.nav-account { width: 48px; height: 48px; padding: 4px; flex-shrink: 0; }
+.nav-account-item { flex-shrink: 0; }
+.nav-account { display: flex; align-items: center; gap: 12px; width: 48px; height: 48px; padding: 4px; border-radius: 50%; background: none; border: 0; cursor: pointer; transition: background-color 0.15s; }
+.nav-account:hover,
+.nav-account-item.open .nav-account { background: rgba(246, 200, 146, 0.3); }
 .nav-account img { width: 40px; height: 40px; }
+.nav-account-label { display: none; }
+.account-menu { left: auto; right: 0; top: calc(100% + 36px); min-width: 220px; }
+button.nav-menu-link { width: 100%; text-align: left; background: none; border: 0; cursor: pointer; }
+.account-hello { padding: 12px 16px 10px 14px; font-size: 13px; line-height: 18px; color: var(--primary); border-bottom: 1px solid #d7aa76; display: flex; flex-direction: column; }
+.account-hello span { font-weight: 600; font-size: 15px; line-height: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .nav-burger { display: none; }
 
@@ -142,5 +150,8 @@
   .nav-menu { position: static; box-shadow: none; display: none; opacity: 1; visibility: visible; transform: none; border-radius: var(--radius); overflow: hidden; }
   .nav-item.open .nav-menu { display: block; }
   .nav-cta { align-self: flex-start; }
-  .nav-account { display: none; }
+  .nav-account { width: auto; height: auto; padding: 8px 0; border-radius: var(--radius); }
+  .nav-account:hover, .nav-account-item.open .nav-account { background: none; }
+  .nav-account-label { display: inline; font-weight: 500; font-size: 16px; color: var(--gold); }
+  .account-menu { top: auto; }
 }
